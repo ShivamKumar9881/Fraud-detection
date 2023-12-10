@@ -1,0 +1,105 @@
+{% extends 'user/userbase.html' %}
+{% load static %}
+{% block contents %}
+
+
+<style>
+    .form-container {
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .form-container label {
+        color: rgb(207, 20, 20);
+    }
+
+    .form-container input[type="text"],
+    .form-container input[type="email"],
+    .form-container input[type="password"] {
+        display: inline-block;
+        width: 200px; /* Adjust the width as desired */
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .form-container input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .form-container input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+     .grid-container {
+       display: grid;
+       grid-template-columns: repeat(4, 1fr);
+       grid-gap: 10px;
+     }
+ 
+     .grid-item {
+       display: flex;
+       flex-direction: column;
+     }
+   </style>
+<br><br>
+ <div class="form-container">
+    <form  action="/predicts/" method="POST">
+        {% csrf_token %}
+   <div class="grid-container">
+     <div class="grid-item">
+       <label for="input1">Age</label>
+       <input type="text" id="input1" name="input1">
+     </div>
+     <div class="grid-item">
+       <label for="input2">RepNumber</label>
+       <input type="text" id="input2" name="input2">
+     </div>
+     <div class="grid-item">
+       <label for="input3">WeekOfMonth</label>
+       <input type="text" id="input3" name="input3">
+     </div>
+     <div class="grid-item">
+       <label for="input4">WeekOfMonthClaimed</label>
+       <input type="text" id="input4" name="input4">
+     </div>
+     <div class="grid-item">
+       <label for="input5">DriverRating</label>
+       <input type="text" id="input5" name="input5">
+     </div>
+     <div class="grid-item">
+        <label for="input1">Year</label>
+        <input type="text" id="input1" name="input6">
+      </div>
+      <div class="grid-item">
+        <label for="input2">Fault</label>
+        <input type="text" id="input2" name="input7">
+      </div>
+      <div class="grid-item">
+        <label for="input2">PastNumberOfClaims_1</label>
+        <input type="text" id="input2" name="input8">
+      </div>
+      <div class="grid-item">
+        <label for="input2">PastNumberOfClaims_2 to 4</label>
+        <input type="text" id="input2" name="input9">
+      </div>
+      <div class="grid-item">
+        <label for="input2">PastNumberOfClaims_>4</label>
+        <input type="text" id="input2" name="input10">
+      </div>
+      <div class="grid-item">
+        <label for="input2">PastNumberOfClaims_none</label>
+        <input type="text" id="input2" name="input11">
+      </div>
+      
+   </div>
+   <input type="submit" value="Submit">
+</form>
+ </div>
+
+{% endblock %}
